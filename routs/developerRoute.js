@@ -1,19 +1,22 @@
 const express = require("express");
 const Developer = require("../models/developerModel");
-const { createDeveloper } = require("../controller/developersController");
+const {
+  createDeveloper,
+  getDeveloper,
+  getSingleDeveloper,
+} = require("../controller/developersController");
 const router = express.Router();
 
 //GET
 
-router.get("/api/developers", (req, res) => {
-  res.send({ message: "You have made a GET request" });
-});
+router.get("/", getDeveloper);
 
 // GET SINGLE DOCUMNENT
+router.get("/", getSingleDeveloper);
 
-router.get("/:id", (req, res) => {
-  res.send({ message: "You have made a SINGLE GET request" });
-});
+// router.get("/:id", (req, res) => {
+//   res.send({ message: "You have made a SINGLE GET request" });
+// });
 
 //POST
 
